@@ -11,7 +11,7 @@ const html404 = `<!DOCTYPE html>
 <body>
   <h1>404 Not Found.</h1>
   <p>The url you visit is not found.</p>
-  <a href="https://github.com/xyTom/Url-Shorten-Worker/" target="_self">Fork me on GitHub</a>
+  <a href="https://mikrodinet.github.io/shortlink " target="_self">Fork me on GitHub</a>
 </body>`
 
 let response_header={
@@ -148,7 +148,7 @@ async function handleRequest(request) {
   console.log(path)
   if(!path){
 
-    const html= await fetch("https://xytom.github.io/Url-Shorten-Worker/"+config.theme+"/index.html")
+    const html= await fetch("https://mikrodinet.github.io/shortlink/"+config.theme+"/index.html")
     
     return new Response(await html.text(), {
     headers: {
@@ -182,7 +182,7 @@ async function handleRequest(request) {
       }
     }
     if (config.no_ref=="on"){
-      let no_ref= await fetch("https://xytom.github.io/Url-Shorten-Worker/no-ref.html")
+      let no_ref= await fetch("https://mikrodinet.github.io/shortlink/no-ref.html")
       no_ref=await no_ref.text()
       no_ref=no_ref.replace(/{Replace}/gm, location)
       return new Response(no_ref, {
@@ -209,3 +209,4 @@ async function handleRequest(request) {
 addEventListener("fetch", async event => {
   event.respondWith(handleRequest(event.request))
 })
+
